@@ -2,7 +2,7 @@
 #include "sort.h"
 
 /**
- * switch_sort - change 2 nodes in a doubly linked list
+ * switch_sort_insert - change 2 nodes in a doubly linked list
  * @list: pointer to the start of the list
  * @node1: pointer to the first node to change.
 **/
@@ -28,6 +28,9 @@ void switch_sort_insert(listint_t **list, listint_t *node1)
 }
 
 /**
+ * insertion_sort_list - Use the insertion sort
+ * @list: pointer to the head of the list
+ * Return: void
 **/
 void insertion_sort_list(listint_t **list)
 {
