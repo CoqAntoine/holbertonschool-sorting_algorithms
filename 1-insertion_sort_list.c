@@ -34,7 +34,7 @@ void insertion_sort_list(listint_t **list)
 	listint_t *i, *insert_node;
 	int insert_value;
 
-	if (list == NULL)
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
 
 	i = (*list)->next;
