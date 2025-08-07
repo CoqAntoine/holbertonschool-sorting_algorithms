@@ -3,21 +3,19 @@
 
 void insertion_sort_list(listint_t **list)
 {
-    int i, j;
-    int valeur_insertion;
-    listint_t **temp = **list;
+	int i, j, insert_value;
 
 	if (list == NULL)
 		return;
 
-	for (i = 0; list != NULL; i++)
+	for (i = 0; i < list -1; i++)
 	{
-        temp = temp->next;
-        valeur_insertion = (*list)->n;
-		for (j = i; j > 0 && valeur_insertion < (*list)->prev->n; j--)
+		insert_value = (*list)->n;
+		for (j = i; j < 0 && insert_value < (*list)->prev->n; j--)
 		{
-
-            print_list(list);
+			(*list)->n = (*list)->prev->n;
 		}
+		list->n = insert_value;
+		print_list(*list);
 	}
 }
