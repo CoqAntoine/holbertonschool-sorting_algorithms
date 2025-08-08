@@ -8,7 +8,7 @@
  */
 void quick_sort(int *array, size_t size)
 {
-    size_t i, j;
+	size_t i, j;
 	int index = 0, temp = 0, changement = 0;
 
 	if (array == NULL)
