@@ -6,7 +6,7 @@
  * @x: First integer to swap.
  * @y: Second integer to swap.
  *
- * Picture two kids trading Pok  mon cards  ^`^t they just swap them.
+ * Picture two kids trading Pokemon cards - they just swap them.
  * This function does exactly that but with numbers inside memory.
 **/
 void swap(int *x, int *y)
@@ -23,12 +23,14 @@ void swap(int *x, int *y)
  * @high: Ending index of the partition.
  * @size: Size of the full array.
  *
+ * Return: The pivot index
+ *
  * This is where the magic happens  ^`^t we pick the last element as
  * the 'pivot' and rearrange the array so that:
  * all numbers smaller than or equal to it are on the left,
  * and all the bigger numbers go on the right.
 **/
-int lomuto(int *array, int low, int high)
+int lomuto(int *array, int low, int high, size_t size)
 {
 	int pivot_value = array[high];
 	int i, j;
@@ -44,6 +46,9 @@ int lomuto(int *array, int low, int high)
 		}
 	}
 	swap(&array[i], &array[high]);
+
+	print_array(array, size);
+
 	return (i);
 }
 
@@ -58,7 +63,7 @@ int lomuto(int *array, int low, int high)
  */
 void quick_sort(int *array, size_t size)
 {
-	quicksort_recursion(array, 0, size -1, size);
+	quicksort_recursion(array, 0, size - 1, size);
 }
 
 /**
@@ -78,11 +83,9 @@ void quicksort_recursion(int *array, int low, int high, size_t size)
 
 	if (low < high)
 	{
-		pivot_index = lomuto(array, low, high);
+		pivot_index = lomuto(array, low, high, size);
 
-		print_array(array, size);
-
-		quicksort_recursion(array, low, pivot_index -1, size);
-		quicksort_recursion(array, pivot_index +1, high, size);
+		quicksort_recursion(array, low, pivot_index - 1, size);
+		quicksort_recursion(array, pivot_index + 1, high, size);
 	}
 }
